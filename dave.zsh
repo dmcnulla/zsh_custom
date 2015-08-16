@@ -1,7 +1,7 @@
 alias e='chmod +x '
 
 #sublime
-alias s='sublime '
+alias s='subl '
 
 #tar
 alias tj='tar -xvjpf'
