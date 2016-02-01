@@ -15,6 +15,9 @@ alias gmc='gma; gc '
 # diffs
 alias gd='git diff '
 alias gdh="git diff HEAD~1 "
+# history
+alias gh='git hist'
+alias ghl='git hist | less'
 #stash
 alias gstd='git stash drop stash@{0}'
 alias gsts='git stash show stash@{0}'
@@ -24,3 +27,4 @@ alias gbo='go -b '
 
 #functions
 function gitignore() { echo "to be used for one file at a time"; echo $1 >> .gitignore; cat .gitignore }
+function gitignoreglobal() { echo "to be used for one file at a time"; echo $1 >> ~/.gitignore; cat ~/.gitignore }
