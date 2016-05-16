@@ -19,4 +19,4 @@ alias dkideps='docker-image-dependencies' # Output a graph of image dependencies
 alias dkre='docker-runtime-environment' # List environmental variables of the supplied image ID
 alias dkelc='docker exec -it `dklcid` bash' # Enter last container (works with Docker 1.3 and above)
 
-alias da_show='cat ~/custom/plugins/docker/docker.plugin.zsh'
+alias da_show='cat $ZSH_CUSTOM/plugins/docker/docker.plugin.zsh'
