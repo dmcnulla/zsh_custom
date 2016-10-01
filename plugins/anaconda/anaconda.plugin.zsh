@@ -1,0 +1,5 @@
+alias env-new='conda create --clone default -n '
+alias env-use='source activate '
+alias env-rm='conda remove --all -n '
+alias env-list='conda info --envs'
+alias env-pip='pip list'
