@@ -9,7 +9,7 @@ alias gdl='gs | grep deleted | awk "{print \$2}" '
 alias gdla='gdl | xargs git rm '
 # Add individual
 alias ga='git add '
-# commit 
+# commit
 alias gc='git commit -m '
 alias gmc='gma; gc '
 # diffs
@@ -22,8 +22,8 @@ alias ghl='git hist | less'
 alias gstd='git stash drop stash@{0}'
 alias gsts='git stash show stash@{0}'
 #
-alias go='git checkout '
-alias gbo='go -b '
+alias gco='git checkout '
+alias gbo='gco -b '
 
 #functions
 function gitignore() { echo "to be used for one file at a time"; echo $1 >> .gitignore; cat .gitignore }
