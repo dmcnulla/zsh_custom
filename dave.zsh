@@ -17,3 +17,13 @@ alias srem='sudo apt-get remove '
 alias repos='sudo add-apt-repository '
 alias _='sudo '
 
+# Virtual Environments for Python
+use_ve() {
+	source ~/virtual_env/$1/bin/activate
+}
+
+create_ve() {
+	cd ~/virtual_env
+	virtualenv $1
+	popd
+}

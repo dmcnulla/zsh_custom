@@ -23,3 +23,6 @@ rb() {
   rm ~/.irb-history
   irb
 }
+
+#find_fearure
+alias ff='ack-grep "^\s*(Given|When|Then)" --features | grep '
