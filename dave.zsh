@@ -27,3 +27,8 @@ create_ve() {
 	virtualenv $1
 	popd
 }
+
+webrick() {
+    ruby -rwebrick -e "WEBrick::HTTPServer.new(:Port => $1, :DocumentRoot => Dir.pwd).start"
+}
+

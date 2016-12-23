@@ -18,3 +18,16 @@ alias lg='lla|grep '
 process_by_port() {
   sudo netstat -anp|grep "\W$1\W"
 }
+
+pport() {
+    for i in "`get_process_id $1`"
+    do 
+        netstat -anp | grep "$i"
+    done    
+}
+
+
+get_process_id() {
+    name=$1
+    ps -ef | grep -v grep | grep $name | awk '{ print $2 }'
+}
