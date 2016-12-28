@@ -11,7 +11,7 @@ alias gdla='gdl | xargs git rm '
 alias ga='git add '
 # commit
 alias gc='git commit -m '
-alias gmc='gma; gc '
+alias gmac='gma; gc '
 # diffs
 alias gd='git diff '
 alias gdh="git diff HEAD~1 "
