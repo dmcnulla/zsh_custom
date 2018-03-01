@@ -17,6 +17,9 @@ alias srem='sudo apt-get remove '
 alias repos='sudo add-apt-repository '
 alias _='sudo '
 
+alias vnva='source ~/venv/bin/activate'
+alias vnvd='deactivate'
+
 # Virtual Environments for Python
 use_ve() {
 	source ~/virtual_env/$1/bin/activate
@@ -31,4 +34,3 @@ create_ve() {
 webrick() {
     ruby -rwebrick -e "WEBrick::HTTPServer.new(:Port => $1, :DocumentRoot => Dir.pwd).start"
 }
-
