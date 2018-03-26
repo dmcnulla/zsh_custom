@@ -38,6 +38,19 @@ alias gps='git push origin `git branch | grep ^\* | awk '\''{print $2}'\''`'
 alias gi='gitignore '
 alias gig='gitignoreglobal '
 
+# git stash
+alias gsl='git stash list'
+alias gsa='git stash apply'
+alias gss='git stash save'
+
+# git reset
+alias gr='git reset '
+alias gr1='git reset HEAD^'
+alias gr2='git reset HEAD^^'
+alias grh='git reset --hard'
+alias grh1='git reset HEAD^ --hard'
+alias grh2='git reset HEAD^^ --hard'
+
 #functions
 function gitignore() { echo "to be used for one file at a time"; echo $1 >> .gitignore; cat .gitignore }
 function gitignoreglobal() { echo "to be used for one file at a time"; echo $1 >> ~/.gitignore; cat ~/.gitignore }
@@ -75,7 +88,7 @@ export_jira() {
     else
         export JIRA_CARD=""
     fi
-    echo "Using ${JIRA_CARD}"
+    echo "Using ${JIRA_CARD} as JIRA_CARD variable"
 }
 
 git_commit() {
