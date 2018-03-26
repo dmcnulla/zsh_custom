@@ -20,6 +20,8 @@ alias _='sudo '
 alias vnva='source ~/venv/bin/activate'
 alias vnvd='deactivate'
 
+alias f8="source ~/venv/jmeter/bin/activate && python -m flake8 --ignore=E,W --select=F,C '--exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,venv' ."
+
 # Virtual Environments for Python
 use_ve() {
 	source ~/virtual_env/$1/bin/activate
