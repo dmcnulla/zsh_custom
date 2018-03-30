@@ -6,7 +6,12 @@
 
 --type-set=web=.css,.htm,.html,.php,.phtml,.js
 --type-set=py=.py
+--type-set=jmeter=.jmx
 --type-set=ruby=.rb,.rhtml,.rjs,.rxml,.erb,.rake,Rakefile
 --type-set=steps=steps.rb,steps.java
 --type-set=feature=.feature
 --type-set=features=.feature
+--type-set=sql=.sql
+--type-set=bteq=.bteq
+--type-set=jenkins=.jenkinsfile
+--type-set=text=.txt,.log,.yaml,.yml

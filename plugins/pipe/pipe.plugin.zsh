@@ -5,7 +5,7 @@ alias -g EL='|& less'
 alias -g ELS='|& less -S'
 alias -g ETL='|& tail -20'
 alias -g ET='|& tail'
-alias -g F=' | fmt -'
+# alias -g F=' | fmt -'
 alias -g G='| egrep'
 alias -g H='| head'
 alias -g HL='|& head -20'
@@ -18,7 +18,7 @@ alias -g NE="2> /dev/null"
 alias -g NS='| sort -n'
 alias -g NUL="> /dev/null 2>&1"
 alias -g PIPE='|'
-# alias grayserver='cd /devroot/tools/graylog2-server-0.9.6p1/bin  && ./graylog2ctl start' 
+# alias grayserver='cd /devroot/tools/graylog2-server-0.9.6p1/bin  && ./graylog2ctl start'
 # alias grayweb='cd /devroot/tools/graylog2-web-interface-0.9.6p1/script && rails s -p 3002 &'
 alias -g R=' > /c/aaa/tee.txt '
 alias -g RNS='| sort -nr'
@@ -35,5 +35,3 @@ alias -g XG='| xargs egrep'
 alias -g X='| xargs'
 
 alias _='sudo '
-
-
