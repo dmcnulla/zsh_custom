@@ -7,10 +7,10 @@ alias f='find . |grep -v svn |grep '
 alias findjar='find . -type f -name  *.jar |xargs -n1 -i -t  jar tvf {} |grep '
 
 alias h='history'
-alias hg='history|grep -v grep|grep ' 
+alias hg='history|grep -v grep|grep '
 alias hgg='history|grep '
 
-alias pg='ps -eaf|grep -v grep|grep ' 
+alias pg='ps -eaf|grep -v grep|grep -i ' 
 alias pgg='ps -eaf|grep '
 
 alias lg='lla|grep '
@@ -21,9 +21,9 @@ process_by_port() {
 
 pport() {
     for i in "`get_process_id $1`"
-    do 
+    do
         netstat -anp | grep "$i"
-    done    
+    done
 }
 
 

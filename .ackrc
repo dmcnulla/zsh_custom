@@ -4,6 +4,7 @@
 # Sort the files
 --sort-files
 
+# types of files
 --type-set=web=.css,.htm,.html,.php,.phtml,.js
 --type-set=py=.py
 --type-set=jmeter=.jmx
@@ -15,3 +16,10 @@
 --type-set=bteq=.bteq
 --type-set=jenkins=.jenkinsfile
 --type-set=text=.txt,.log,.yaml,.yml
+--type-set=txt=.txt,.log,.yaml,.yml
+
+# ignore these directories
+--ignore-dir=.eggs
+--ignore-dir=.git
+--ignore-dir=.idea
+--ignore-dir=.cache
