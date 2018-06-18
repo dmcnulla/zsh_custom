@@ -26,12 +26,13 @@ alias ghl='git hist | less'
 #stash
 alias gstd='git stash drop stash@{0}'
 alias gsts='git stash show stash@{0}'
-alias go='change_branch '
+alias gco='change_branch '
 alias gbo='new_branch '
 # Pulls
 alias gpo='git pull origin'
 alias gpl='git pull origin `git branch | grep ^\* | awk '\''{print $2}'\''`'
 alias gpod='git pull origin develop'
+alias gpom='git pull origin master'
 # Push current
 alias gps='git push origin `git branch | grep ^\* | awk '\''{print $2}'\''`'
 # git ignore
