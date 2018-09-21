@@ -2,7 +2,8 @@
 alias gs='git status '
 # Add modified
 alias gm='gs | grep modified | awk "{print \$2}" '
-alias gma='gm | xargs git add '
+alias gma='git_modified_add'
+
 alias gmr='gm |xargs git reset HEAD '
 
 
@@ -10,7 +11,7 @@ alias gmr='gm |xargs git reset HEAD '
 alias gdl='gs | grep deleted | awk "{print \$2}" '
 alias gdla='gdl | xargs git rm '
 # Add individual
-alias ga='git add '
+alias ga='git_add '
 # commit
 alias gc='git_commit '
 alias gmc='gma; gc '
@@ -95,4 +96,32 @@ export_jira() {
 git_commit() {
 	ask_jira_card
 	git commit -m "${JIRA_CARD} $1"
+}
+
+git_add() {
+    # Only git add if pdb is not in files we are adding to git, and flake8 passes for them
+    set -e
+    if [[ ${file: -3} == ".py" ]]; then
+        check_for_pdb $*
+        run_flake8 $*
+    fi
+    git add $*
+}
+
+git_modified_add() {
+    for entry in `git status | grep modified | awk '{print $2}'`
+    do
+        git_add "$entry"
+    done
+}
+
+check_for_pdb() {
+    if [[ -n `ack-grep pdb $*` ]]; then
+        echo 'pdb found'
+        exit
+    fi
+}
+
+run_flake8() {
+    python -m flake8 --ignore=E501 --select=C,D,E,F,W $1
 }
