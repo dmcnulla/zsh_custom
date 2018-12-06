@@ -22,6 +22,7 @@ alias vnvd='deactivate'
 
 alias f8="source ~/venv/jmeter/bin/activate && python -m flake8 --ignore=E501 --select=C,D,E,F,W '--exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,venv' ."
 
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Virtual Environments for Python
 use_ve() {
