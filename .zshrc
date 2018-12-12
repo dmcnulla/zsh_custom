@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 ZSH_CUSTOM=~/zsh_custom
-plugins=(git ackgrep directory docker pipe autojump vagrant python media)
+plugins=(git_dave ackgrep directory docker pipe autojump vagrant python media)
 
 source $ZSH/oh-my-zsh.sh
 
