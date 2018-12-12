@@ -100,7 +100,6 @@ git_commit() {
 
 git_add() {
     # Only git add if pdb is not in files we are adding to git, and flake8 passes for them
-    set -e
     for file in $*
     do
         if [[ ${file: -3} == ".py" ]]; then
@@ -122,7 +121,7 @@ check_for_pdb() {
     for file in $*
     do
         if [[ -n `ack-grep pdb $file` ]]; then
-            echo 'pdb found in ' $file
+            echo 'ERROR: pdb found in' $file
             exit
         fi
     done
