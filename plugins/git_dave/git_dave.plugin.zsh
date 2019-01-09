@@ -124,6 +124,10 @@ check_for_pdb() {
             echo 'ERROR: pdb found in' $file
             exit
         fi
+        if [[ -n `ack-grep pydevd $file` ]]; then
+            echo 'ERROR: pydevd found in' $file
+            exit
+        fi
     done
 }
 
