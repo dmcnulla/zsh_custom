@@ -103,6 +103,7 @@ git_add() {
     for file in $*
     do
         if [[ ${file: -3} == ".py" ]]; then
+            ack-grep TODO $*
             check_for_pdb $*
             run_flake8 $*
         fi;
@@ -117,20 +118,27 @@ git_modified_add() {
     done
 }
 
+git_deleted_remove() {
+    for entry in `git status | grep deleted | awk '{print $2}'`
+    do
+        git rm "$entry"
+    done
+}
+
 check_for_pdb() {
     for file in $*
     do
         if [[ -n `ack-grep pdb $file` ]]; then
             echo 'ERROR: pdb found in' $file
-            exit
         fi
         if [[ -n `ack-grep pydevd $file` ]]; then
             echo 'ERROR: pydevd found in' $file
-            exit
         fi
     done
 }
 
 run_flake8() {
-    python -m flake8 --ignore=E501 --select=C,D,E,F,W $1
+    python -m flake8 --ignore=E501 --exclude=".git,__init__.py,./**/__init__.py,build/*" --max-complexity=16 --select=C,D,E,F,W $1
 }
+
+export GITHUB_URL=https://github.td.teradata.com/

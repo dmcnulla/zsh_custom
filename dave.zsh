@@ -1,4 +1,14 @@
+upload_package() {
+    APP_VERSION=$1 ARTIFACTORY_USER=ua230042 ARTIFACTORY_PASSWORD=AP3QAeptPVMk5ouw7BwKgXE5UKE python3 setup.py sdist bdist_wheel upload -r local
+}
+
+alias meld='/Applications/Meld.app/Contents/MacOS/Meld'
+alias RF='rm -rf '
+
 alias e='chmod +x '
+
+# jupyter lab
+alias jup='cd ~/projects/jupyter_jobs && jupyter lab'
 
 #sublime
 alias s='subl '
@@ -25,16 +35,47 @@ alias f8="source ~/venv/jmeter/bin/activate && python -m flake8 --ignore=E501 --
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Virtual Environments for Python
-use_ve() {
-	source ~/virtual_env/$1/bin/activate
-}
-
-create_ve() {
-	cd ~/virtual_env
-	virtualenv $1
-	popd
+ve() {
+    # sets the current project name to virtual env (must be named the exact same)
+    current_project=${PWD##*/}
+	source ~/venv/$current_project/bin/activate
 }
 
 webrick() {
     ruby -rwebrick -e "WEBrick::HTTPServer.new(:Port => $1, :DocumentRoot => Dir.pwd).start"
 }
+
+alias tds='tdldapsearch '
+tdldapsearch() {
+  email=$1
+  verbose=$2
+  if [[ "${verbose}" == 'verbose' ]]; then
+    ldapsearch -H "ldaps://ldaps.td.teradata.com" -D "CN=ja230103,OU=Application Accounts,DC=TD,DC=TERADATA,DC=COM" -b "DC=TD,DC=TERADATA,DC=COM" -w 'Redmagnolia#21' "mail=$email"
+  else
+    ldapsearch -H "ldaps://ldaps.td.teradata.com" -D "CN=ja230103,OU=Application Accounts,DC=TD,DC=TERADATA,DC=COM" -b "DC=TD,DC=TERADATA,DC=COM" -w 'Redmagnolia#21' "userPrincipalName=$email" | grep 'cn'
+  fi
+}
+
+alias rtds='reverse_tdldapsearch '
+reverse_tdldapsearch() {
+  qlid=$1
+  ldapsearch -H "ldaps://ldaps.td.teradata.com" -D "CN=ja230103,OU=Application Accounts,DC=TD,DC=TERADATA,DC=COM" -b "DC=TD,DC=TERADATA,DC=COM" -w 'Redmagnolia#21' "cn=$qlid"
+}
+
+alias dtds='dname_tdldapsearch '
+dname_tdldapsearch() {
+  dname=$1
+  ldapsearch -H "ldaps://ldaps.td.teradata.com" -D "CN=ja230103,OU=Application Accounts,DC=TD,DC=TERADATA,DC=COM" -b "DC=TD,DC=TERADATA,DC=COM" -w 'Redmagnolia#21' "displayName=$dname"
+}
+
+rename_file_ext() {
+  for file in *.$1
+  do
+    mv "$file" "${file%.$1}.$2"
+  done
+}
+
+ssh_kube() {
+  kubectl --namespace jenkins exec -c sit-tests -it $1 bash
+}
+

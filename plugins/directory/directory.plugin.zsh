@@ -21,9 +21,10 @@ alias la='ls -a'
 alias lf='ls *(.)' #just files
 alias ld='ls *(/)' #just directories
 
-alias df='df -kTh'
-alias du='du -kh'
+alias df='df -k'
+alias du='du -sh *'
 
+alias watch_dirs='watch -n 5 ls '
 alias tj='tar -xvjpf'
 alias t='tar xvfz '
 alias tz='tar -xvzpf'
