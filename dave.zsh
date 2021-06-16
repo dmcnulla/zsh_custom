@@ -27,10 +27,10 @@ alias srem='sudo apt-get remove '
 alias repos='sudo add-apt-repository '
 alias _='sudo '
 
-alias vnva='source ~/venv/bin/activate'
+alias venv='venv_source '
 alias vnvd='deactivate'
 
-alias f8="source ~/venv/jmeter/bin/activate && python -m flake8 --ignore=E501 --select=C,D,E,F,W '--exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,venv' ."
+alias f8="python -m flake8 --ignore=E501 --select=C,D,E,F,W '--exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,venv,.virtualenvs' ."
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
@@ -38,7 +38,7 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 ve() {
     # sets the current project name to virtual env (must be named the exact same)
     current_project=${PWD##*/}
-	source ~/venv/$current_project/bin/activate
+	  source ~/.virtualenvs/$current_project/bin/activate
 }
 
 webrick() {
@@ -46,6 +46,7 @@ webrick() {
 }
 
 alias tds='tdldapsearch '
+
 tdldapsearch() {
   email=$1
   verbose=$2
@@ -75,7 +76,6 @@ rename_file_ext() {
   done
 }
 
-ssh_kube() {
-  kubectl --namespace jenkins exec -c sit-tests -it $1 bash
+venv_source() {
+  source ~/.virtualenvs/$1/bin/activate
 }
-

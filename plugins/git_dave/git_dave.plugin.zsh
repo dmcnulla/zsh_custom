@@ -71,7 +71,7 @@ ask_jira_card() {
 change_branch() {
     val=$1
     git checkout $1
-    if [[ $val == *"TQST-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]]; then
         export_jira $1;
     fi
 }
