@@ -12,7 +12,7 @@ del_pod() {
 
 ssh_kube() {
   echo "ssh_kube <pod_name>"
-  kubectl --namespace jenkins exec -c sit-tests -it $1 bash
+  kubectl --namespace jenkins exec -it $1 bash
 }
 
 port_forward_kube() {

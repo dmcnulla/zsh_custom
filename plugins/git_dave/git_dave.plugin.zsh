@@ -71,7 +71,7 @@ ask_jira_card() {
 change_branch() {
     val=$1
     git checkout $1
-    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
         export_jira $1;
     fi
 }
@@ -79,13 +79,13 @@ change_branch() {
 new_branch() {
     val=$1
     git checkout -b $val
-    if [[ $val == *"TQST-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
 	    export_jira $val;
     fi
 }
 
 export_jira() {
-    if [[ $val == *"TQST-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
         export JIRA_CARD=$1
     else
         export JIRA_CARD=""
