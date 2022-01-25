@@ -53,6 +53,9 @@ alias grh='git reset --hard'
 alias grh1='git reset HEAD^ --hard'
 alias grh2='git reset HEAD^^ --hard'
 
+# Cleanup local branches
+alias gitclean="git branch -a | grep -v ${$(git branch -a | grep remotes | cut -d/'' -f3-)/#/-e} | xargs git branch -D"
+
 #functions
 function gitignore() { echo "to be used for one file at a time"; echo $1 >> .gitignore; cat .gitignore }
 function gitignoreglobal() { echo "to be used for one file at a time"; echo $1 >> ~/.gitignore; cat ~/.gitignore }
@@ -71,7 +74,7 @@ ask_jira_card() {
 change_branch() {
     val=$1
     git checkout $1
-    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]] || [[ $val == *"TAAS-"* ]]; then
         export_jira $1;
     fi
 }
@@ -79,13 +82,13 @@ change_branch() {
 new_branch() {
     val=$1
     git checkout -b $val
-    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]] || [[ $val == *"TAAS-"* ]]; then
 	    export_jira $val;
     fi
 }
 
 export_jira() {
-    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]]; then
+    if [[ $val == *"TQST-"* ]] || [[ $val == *"QTA-"* ]] || [[ $val == *"TTA-"* ]] || [[ $val == *"TAAS-"* ]]; then
         export JIRA_CARD=$1
     else
         export JIRA_CARD=""
