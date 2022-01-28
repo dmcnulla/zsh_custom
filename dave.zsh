@@ -79,3 +79,9 @@ rename_file_ext() {
 venv_source() {
   source ~/.virtualenvs/$1/bin/activate
 }
+
+# kubectl
+alias set_kube_config_azure="set_kube_config azureConfig2Light"
+alias set_kube_config_onprem="set_kube_config config"
+alias set_name_space_default="set_namespace default"
+alias set_name_space_jenkins="set_namespace jenkins"
