@@ -29,13 +29,16 @@ alias gstd='git stash drop stash@{0}'
 alias gsts='git stash show stash@{0}'
 alias gco='change_branch '
 alias gbo='new_branch '
+# branch
+alias git_primary='git br | grep ^\* | awk '\''{print $2}'\'''
+alias git_current='git branch | grep ^\* | awk '\''{print $2}'\'''
 # Pulls
 alias gpo='git pull origin'
-alias gpl='git pull origin `git branch | grep ^\* | awk '\''{print $2}'\''`'
+alias gpl='git pull --rebase origin `git_current`'
 alias gpod='git pull origin develop'
-alias gpom='git pull origin master'
+alias gpom='git pull origin `git_primary`'
 # Push current
-alias gps='git push origin `git branch | grep ^\* | awk '\''{print $2}'\''`'
+alias gps='git push origin `git_current`'
 # git ignore
 alias gi='gitignore '
 alias gig='gitignoreglobal '
