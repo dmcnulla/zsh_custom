@@ -3,14 +3,14 @@ alias a='ack-grep '
 alias ag='which '
 agg() { ack-grep -H $* $ZSH_CUSTOM }
 
-alias f='find . |grep -v svn |grep '
+alias f='find . 2>&1 | grep -v "Operation not permitted" | grep -v "Permission denied" | grep -v svn |grep '
 alias findjar='find . -type f -name  *.jar |xargs -n1 -i -t  jar tvf {} |grep '
 
 alias h='history'
 alias hg='history|grep -v grep|grep '
 alias hgg='history|grep '
 
-alias pg='ps -eaf|grep -v grep|grep -i ' 
+alias pg='ps -eaf|grep -v grep|grep -i '
 alias pgg='ps -eaf|grep '
 
 alias lg='lla|grep '
