@@ -144,7 +144,11 @@ check_for_pdb() {
 }
 
 run_flake8() {
-    python -m flake8 --ignore=E501 --exclude=".git,__init__.py,./**/__init__.py,build/*" --max-complexity=16 --select=C,D,E,F,W $1
+    if [ ! -f ".flake8" ]; then
+        python -m flake8 --config='.flake8' $1
+    else
+        python -m flake8 --max-line-length=120 --exclude=".git,__init__.py,./**/__init__.py,build/*,./**/tests/*.py,./**/integration_tests/*.py" --max-complexity=16 --select=C,D,E,F,W,S $1
+    fi
 }
 
 export GITHUB_URL=https://github.td.teradata.com/
