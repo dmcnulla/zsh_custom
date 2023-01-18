@@ -109,8 +109,6 @@ git_add() {
     for file in $*
     do
         if [[ ${file: -3} == ".py" ]]; then
-            ack-grep TODO $*
-            check_for_pdb $*
             run_flake8 $*
         fi;
     done
@@ -147,6 +145,8 @@ run_flake8() {
     if [ ! -f ".flake8" ]; then
         python -m flake8 --config='.flake8' $1
     else
+        ack-grep TODO $1
+        check_for_pdb $1
         python -m flake8 --max-line-length=120 --exclude=".git,__init__.py,./**/__init__.py,build/*,./**/tests/*.py,./**/integration_tests/*.py" --max-complexity=16 --select=C,D,E,F,W,S $1
     fi
 }
