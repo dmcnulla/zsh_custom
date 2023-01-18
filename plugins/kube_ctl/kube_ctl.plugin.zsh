@@ -1,4 +1,4 @@
-export KUBE_CONFIG='~/.kube/config'
+export KUBE_CONFIG='/Users/david.mcnulla/.kube/config'
 export NAMESPACE=jenkins
 
 alias delete_pods="find_pods | awk '{print \$1;}' | xargs del_pod"
