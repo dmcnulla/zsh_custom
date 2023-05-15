@@ -1,5 +1,7 @@
 export KUBE_CONFIG='/Users/david.mcnulla/.kube/config'
 export NAMESPACE=jenkins
+export VSPHERE=/Users/david.mcnulla/tanzu/bin/kubectl-vsphere
+export CONTEXT=taas-rnd
 
 alias delete_pods="find_pods | awk '{print \$1;}' | xargs del_pod"
 
@@ -36,3 +38,6 @@ cp_kube() {
   echo "cp_kube <pod_name> <path_to_file>"
   kubectl --kubeconfig $KUBE_CONFIG --namespace $NAMESPACE $1:$2 $2:t
 }
+
+alias kube_renew="${VSPHERE} login --server=10.22.124.2 --tanzu-kubernetes-cluster-name taas-rnd --tanzu-kubernetes-cluster-namespace taas-rnd-ns --insecure-skip-tls-verify --vsphere-username dm186069@td.teradata.com"
+alias kube_context="kubectl config use-context ${CONTEXT}"
