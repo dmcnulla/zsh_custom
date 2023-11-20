@@ -8,7 +8,7 @@ alias RF='rm -rf '
 alias e='chmod +x '
 
 # jupyter lab
-alias jup='cd ~/projects/jupyter_jobs && jupyter lab'
+alias jup='cd /Users/david.mcnulla/IdeaProjects/jupyter_jobs && jupyter lab'
 
 #sublime
 alias s='subl '

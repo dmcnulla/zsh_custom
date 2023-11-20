@@ -101,7 +101,7 @@ export_jira() {
 
 git_commit() {
 	ask_jira_card
-	git commit -m "${JIRA_CARD} $1"
+	git commit -m "${JIRA_CARD} $1 +AI"
 }
 
 git_add() {
